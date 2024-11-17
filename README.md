@@ -47,12 +47,6 @@ The script provides insights into the following areas:
 ### Steps  
 1. Clone the repository:
 
-Run the script from the command line with `sudo`:  
-
-```bash
-sudo ./forensic_insight.sh
-```  
-
 ```bash
 git clone https://github.com/duarte-ferreira-santos/forensic-insight.git
 cd forensic-insight
