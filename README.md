@@ -130,6 +130,15 @@ The generated reports are organized as follows:
 
 ---
 
+### ⚠️ Warning  
+**Sensitive Information:** The generated reports will contain system-sensitive data, including password hashes, user login details, SSH keys, and other confidential information. These outputs are saved in plain-text files, making them vulnerable to unauthorized access if not handled properly.  
+
+**Recommendations:**  
+- Store the output files in a secure, restricted-access location.  
+- Delete the reports after completing your analysis if they are no longer required.  
+- Use encryption or secure storage methods to protect the data if it needs to be retained.  
+
+---
 ## Contributing  
 
 We welcome contributions to improve the script!  
