@@ -1,8 +1,5 @@
 ![forensic-insight-logo](./forensic-insight.jpg)
 
-Here's the updated **README.md**, reflecting the menu-driven nature of the script:  
-
-```markdown
 # Forensic Insight Script
 
 ## Overview  
@@ -48,11 +45,18 @@ The script provides insights into the following areas:
 - `sudo` privileges for elevated commands.  
 
 ### Steps  
-1. Clone the repository:  
+1. Clone the repository:
 
-   git clone https://github.com/duarte-ferreira-santos/forensic-insight.git
-   cd forensic-insight
-  
+Run the script from the command line with `sudo`:  
+
+```bash
+sudo ./forensic_insight.sh
+```  
+
+```bash
+git clone https://github.com/duarte-ferreira-santos/forensic-insight.git
+cd forensic-insight
+```   
 
 2. Make the script executable:  
    ```bash
