@@ -1,9 +1,12 @@
 ![forensic-insight-logo](./forensic-insight.jpg)
 
+Here's the updated **README.md**, reflecting the menu-driven nature of the script:  
+
+```markdown
 # Forensic Insight Script
 
 ## Overview  
-**Forensic Insight** is a comprehensive, modular script designed for system administrators, incident responders, and forensic analysts. It automates the collection of both volatile and non-volatile data from Linux systems suspected of compromise, providing thorough analysis with minimal manual effort. The script outputs organized reports, including both high-level summaries and detailed data, facilitating rapid decision-making during security investigations.
+**Forensic Insight** is a modular, interactive script designed for system administrators, incident responders, and forensic analysts. It facilitates the collection of volatile and non-volatile data from Linux systems suspected of compromise. The script features an intuitive menu-driven interface, enabling users to generate specific reports based on their investigative needs.  
 
 ---
 
@@ -11,7 +14,7 @@
 - [Features](#features)  
 - [Installation](#installation)  
 - [Usage](#usage)  
-- [How It Works](#how-it-works)  
+- [Menu Options](#menu-options)  
 - [Output Structure](#output-structure)  
 - [Contributing](#contributing)  
 - [License](#license)  
@@ -19,83 +22,97 @@
 ---
 
 ## Features  
-The **Forensic Insight** script provides an automated means of gathering critical system information, organized into the following categories:
+- **Interactive Menu:** Navigate a simple interface to select specific categories of information for reporting.  
+- **Customizable Reports:** Generate reports only for the areas relevant to your investigation.  
+- **Organized Output:** All results are saved in a structured directory, with summary and detailed sub-reports.  
+- **Extendable Script:** Modular design allows for easy additions to functionality.  
 
-- **System Information Overview:** System details (OS, kernel, uptime, etc.), logged-in users, disk usage, routing table, and password hashes.
-- **Network Usage:** Active network connections, open ports, ARP table, DNS settings, and interfaces.
-- **Process Information:** Running processes, network activity, deleted binaries, and suspicious directories.
-- **Directory Information:** Commonly targeted directories, world-writable paths, hidden directories, and recently modified files.
-- **Files and Programs:** Scans for large binaries, orphaned files, SUID/SGID files, and checks package integrity.
-- **Users and Authentication Activity:** Password hashes, authentication logs, SSH keys, scheduled tasks, and login histories.
-- **Log Information:** System, network, and application logs, including metadata and user activity.
-- **Persistence Mechanisms:** Detection of persistent malware, modified scripts, scheduled tasks, SSH persistence, and systemd services.
-- **Containers and Virtual Machines:** Information about Docker containers, images, and virtual machines.
+### Data Categories Collected  
+The script provides insights into the following areas:  
+- **System Information Overview:** General system details, uptime, memory, and storage usage.  
+- **Network Usage:** Active connections, open ports, DNS resolver settings, and ARP table.  
+- **Processes:** Details on running processes, network activity per process, and deleted binaries.  
+- **Directories:** Hidden files, world-writable directories, and recent file changes.  
+- **Files and Installed Software:** Large binaries, SUID/SGID files, orphaned files, and package integrity.  
+- **Users and Authentication Activity:** Login histories, password hashes, SSH keys, and cron jobs.  
+- **Logs:** System logs, user activity, and application logs.  
+- **Persistence Mechanisms:** Detection of scheduled tasks, modified scripts, SSH backdoors, and systemd services.  
+- **Containers and Virtual Machines:** Information on Docker containers and virtual environments.  
 
 ---
 
 ## Installation  
 
 ### Prerequisites  
-Before using the script, ensure that you have the following installed:  
-- A Linux-based system (Ubuntu or similar is recommended).  
-- `sudo` access to run commands requiring elevated privileges.
+- A Linux-based system (Ubuntu or similar).  
+- `sudo` privileges for elevated commands.  
 
 ### Steps  
-1. **Clone the repository:**  
-   Clone the repository to your local machine:
-   ```bash
+1. Clone the repository:  
+
    git clone https://github.com/duarte-ferreira-santos/forensic-insight.git
    cd forensic-insight
-   ```
+  
 
-2. **Make the script executable:**  
-   Ensure the script has execute permissions:
+2. Make the script executable:  
    ```bash
    chmod +x forensic_insight.sh
-   ```
+   ```  
 
 ---
 
 ## Usage  
-Once installed, you can run the script by executing the following command with `sudo` privileges:
+Run the script from the command line with `sudo`:  
 
 ```bash
 sudo ./forensic_insight.sh
-```
+```  
 
-The script will generate detailed reports on your system’s current state and save them in the output directory.
-
-### Example of Execution:  
-```bash
-sudo ./forensic_insight.sh
-```
-
-After running the script, the data will be organized into a directory structure containing the main report and individual text files for each category.
+Upon execution, the script presents a menu interface to guide the user through available options. Select a category to generate a specific report or exit the tool.
 
 ---
 
-## How It Works  
+## Menu Options  
 
-The **Forensic Insight** script executes a series of predefined Linux commands to collect data, perform checks, and generate reports. Here’s how it works in a nutshell:
+The script presents the following menu upon execution:
 
-1. **Gathering Data:** The script runs system commands to gather relevant data across multiple categories such as system information, network activity, and process data.
-2. **Generating Reports:** Data is compiled into both an overview file (with summarized findings) and detailed sub-sections (with specific data points).
-3. **Output:** The script creates organized directories and files, allowing for easy review and analysis of the collected data.
+```
+=========================================
+         Linux Forensic Toolkit          
+=========================================
+Choose an option by entering a number:
+1. System Information
+2. Network Usage
+3. Processes
+4. Directories
+5. Files and Installed Software
+6. Users and Authentication Activity
+7. Logs
+8. Persistence Mechanisms
+9. Containers and VM Information
+0. Exit
+=========================================
+```
 
-### Example:  
-- **Persistence Mechanisms Module:**  
-  - **Overview File:** Lists all persistence tactics detected.  
-  - **Sub-sections:**  
-    - **Webshell Detection:** Checks for modified files in `/var/www/html`.
-    - **Cron Jobs:** Lists system and user-specific cron tasks.
-    - **Systemd Services:** Identifies enabled and custom systemd services.
-    - **SSH Configuration:** Inspects SSH daemon settings and user files.
+### How to Use the Menu  
+1. Enter the number corresponding to your desired category.  
+2. The script will generate the requested report and save it in the output directory.  
+3. After completing the report, you’ll be returned to the main menu.  
+
+### Example of Execution  
+1. Run the script:  
+   ```bash
+   sudo ./forensic_insight.sh
+   ```  
+2. Choose an option (e.g., `1` for "System Information").  
+3. Review the report saved in the output directory.  
+4. Repeat for additional reports or choose `0` to exit.  
 
 ---
 
 ## Output Structure  
 
-The output is organized into the following structure:
+The generated reports are organized as follows:  
 
 ```
 ├── 1_System_Info_Overview
@@ -113,24 +130,21 @@ The output is organized into the following structure:
 ...
 ```
 
-Each section contains both an overview of the findings and detailed data files for in-depth analysis.
-
 ---
 
 ## Contributing  
 
-We welcome contributions to improve the script! Here’s how you can help:  
+We welcome contributions to improve the script!  
 
-1. **Fork the repository** and create your branch (`git checkout -b feature/your-feature`).
-2. **Make changes** and commit them (`git commit -am 'Add new feature'`).
-3. **Push to your branch** (`git push origin feature/your-feature`).
-4. Create a **pull request** with a description of the changes.
-
-Please make sure to write clear and concise commit messages, and document your changes thoroughly.
+1. **Fork the repository** and create a new branch (`git checkout -b feature/your-feature`).  
+2. **Make changes** and commit them (`git commit -am 'Add new feature'`).  
+3. **Push to your branch** (`git push origin feature/your-feature`).  
+4. Create a **pull request** with a description of your changes.  
 
 ---
 
 ## License  
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.  
+
 
 
