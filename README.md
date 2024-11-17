@@ -1,3 +1,5 @@
+![forensic-insight-logo](./forensic-insight.jpg)
+
 # Forensic Insight Script
 
 ## Overview  
