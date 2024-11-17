@@ -44,7 +44,7 @@ Before using the script, ensure that you have the following installed:
 1. **Clone the repository:**  
    Clone the repository to your local machine:
    ```bash
-   git clone https://github.com/your-repo/forensic-insight.git
+   git clone https://github.com/duarte-ferreira-santos/forensic-insight.git
    cd forensic-insight
    ```
 
